@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="AbilityCatalog" load_steps=13 format=3 uid="uid://c3j6v1q3gtwxx"]
+
+[ext_resource type="Script" uid="uid://byukewqyv62la" path="res://scripts/data/AbilityData.gd" id="1_ability_data"]
+[ext_resource type="Script" uid="uid://sgaqeglf57va" path="res://scripts/data/AbilityCatalog.gd" id="2_ability_catalog"]
+[ext_resource type="Texture2D" uid="uid://dy5hv32pfe6g7" path="res://assets/ITEMS_CASHE/pow.svg" id="2_n1xr3"]
+[ext_resource type="Texture2D" uid="uid://f7skuyvuhdeg" path="res://assets/ITEMS_CASHE/bullet.svg" id="3_bs2y2"]
+[ext_resource type="Texture2D" uid="uid://dw44ph7nq4jl1" path="res://assets/ITEMS_CASHE/magic_shield.svg" id="4_4bi2r"]
+[ext_resource type="Texture2D" uid="uid://b3bax1b6jeuub" path="res://assets/ITEMS_CASHE/tongue.svg" id="4_ood37"]
+[ext_resource type="Texture2D" uid="uid://bjijhflfhyohu" path="res://assets/ITEMS_CASHE/candle.svg" id="5_ood37"]
+
+[sub_resource type="Resource" id="Resource_basic_attack"]
+script = ExtResource("1_ability_data")
+id = "AB_1"
+name = "Basic Attack"
+attack = 2
+power = 10
+description = "A common move."
+icon = ExtResource("2_n1xr3")
+metadata/_custom_type_script = "uid://cclbb5b4p2s6y"
+
+[sub_resource type="Resource" id="Resource_wind_bullet"]
+script = ExtResource("1_ability_data")
+id = "AB_2"
+name = "Wind Bullet"
+attack = 5
+magic = 10
+power = 5
+description = "An impact of compacted air."
+icon = ExtResource("3_bs2y2")
+metadata/_custom_type_script = "uid://cclbb5b4p2s6y"
+
+[sub_resource type="Resource" id="Resource_silver_tongue"]
+script = ExtResource("1_ability_data")
+id = "AB_3"
+name = "Silver Tongue"
+magic = 15
+power = 1
+description = "Increase your Charisma by 5 for 60 seconds."
+icon = ExtResource("4_ood37")
+metadata/_custom_type_script = "uid://cclbb5b4p2s6y"
+
+[sub_resource type="Resource" id="Resource_m852c"]
+script = ExtResource("1_ability_data")
+id = "AB_4"
+name = "Shield"
+magic = 5
+power = 5
+description = "Increase your Defense by 5 for 60 seconds."
+icon = ExtResource("4_4bi2r")
+metadata/_custom_type_script = "uid://byukewqyv62la"
+
+[sub_resource type="Resource" id="Resource_ip1yl"]
+script = ExtResource("1_ability_data")
+id = "AB_5"
+name = "Light"
+magic = 2
+power = 25
+description = "Cast a small light allowing you to see up to 10 ft in any direction when in the dark."
+icon = ExtResource("5_ood37")
+metadata/_custom_type_script = "uid://byukewqyv62la"
+
+[resource]
+script = ExtResource("2_ability_catalog")
+abilities = Array[ExtResource("1_ability_data")]([SubResource("Resource_basic_attack"), SubResource("Resource_wind_bullet"), SubResource("Resource_silver_tongue"), SubResource("Resource_m852c"), SubResource("Resource_ip1yl")])

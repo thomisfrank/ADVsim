@@ -7,6 +7,7 @@ var _long_press_timers: Dictionary = {}
 var _hovered: Dictionary = {}
 var _desc_hovered: Dictionary = {}
 var _action_bar_node: Node
+var _icon_cache: Dictionary = {}
 
 func _ready() -> void:
 	_action_bar_node = _resolve_node(action_bar)
@@ -20,6 +21,58 @@ func _ready() -> void:
 	for child in panel.get_children():
 		if child is Button:
 			_setup_ability_button(child)
+
+func set_selected_abilities(abilities: Array[AbilityData]) -> void:
+	var panel = get_node_or_null("Ability Panel")
+	if not panel:
+		return
+	var buttons: Array = []
+	for child in panel.get_children():
+		if child is Button:
+			buttons.append(child)
+	for i in range(buttons.size()):
+		var button := buttons[i] as Button
+		if i < abilities.size():
+			var ability: AbilityData = abilities[i]
+			button.visible = true
+			button.text = ability.name
+			if ability.icon:
+				button.icon = _get_visible_icon(ability.icon)
+				button.icon_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+				button.expand_icon = false
+				button.add_theme_constant_override("icon_max_width", 56)
+			var power_label := button.get_node_or_null("PowerValue")
+			if power_label is RichTextLabel:
+				power_label.visible = true
+				power_label.text = "%d P" % int(ability.power)
+			var desc_panel := button.get_node_or_null("AbilityDescription")
+			if desc_panel:
+				var desc_label := desc_panel.get_node_or_null("Desc")
+				if desc_label is RichTextLabel:
+					desc_label.text = ability.description
+				var header := desc_panel.get_node_or_null("Header")
+				if header is RichTextLabel:
+					header.text = ability.name
+			_set_desc_visible(button, false)
+		else:
+			button.visible = false
+
+func _get_visible_icon(texture: Texture2D) -> Texture2D:
+	if not texture:
+		return null
+	if _icon_cache.has(texture):
+		return _icon_cache[texture]
+	var image := texture.get_image()
+	if not image:
+		return texture
+	for y in range(image.get_height()):
+		for x in range(image.get_width()):
+			var c := image.get_pixel(x, y)
+			if c.a > 0.0:
+				image.set_pixel(x, y, Color(1, 1, 1, c.a))
+	var tex := ImageTexture.create_from_image(image)
+	_icon_cache[texture] = tex
+	return tex
 
 func _resolve_node(path: NodePath) -> Node:
 	if path.is_empty():
@@ -84,10 +137,10 @@ func _on_desc_mouse_exited(button: Button) -> void:
 	if not _hovered.get(button, false):
 		_set_desc_visible(button, false)
 
-func _set_desc_visible(button: Button, is_visible: bool) -> void:
+func _set_desc_visible(button: Button, show_desc: bool) -> void:
 	var desc = button.get_node_or_null("AbilityDescription")
 	if desc:
-		desc.visible = is_visible
+		desc.visible = show_desc
 
 func _on_back_pressed() -> void:
 	visible = false

@@ -1,0 +1,125 @@
+[gd_resource type="Resource" script_class="ItemCatalog" load_steps=15 format=3 uid="uid://blv7fwhingadu"]
+
+[ext_resource type="Script" uid="uid://bljjg4k206igk" path="res://scripts/data/ItemData.gd" id="1_xlds3"]
+[ext_resource type="Texture2D" uid="uid://dllc2lcwjusey" path="res://assets/ITEMS_CASHE/sword.svg" id="2_bdasd"]
+[ext_resource type="Texture2D" uid="uid://4ydghgkimxpg" path="res://assets/ITEMS_CASHE/shield.svg" id="3_mypfr"]
+[ext_resource type="Texture2D" uid="uid://dxghul3gxvm0u" path="res://assets/ITEMS_CASHE/necklace.svg" id="4_ovb3k"]
+[ext_resource type="Texture2D" uid="uid://bp5raq2ije1m" path="res://assets/ITEMS_CASHE/ring.svg" id="5_bdasd"]
+[ext_resource type="Script" uid="uid://2vkf6a8ckj56" path="res://scripts/data/ItemCatalog.gd" id="5_v4ywi"]
+[ext_resource type="Texture2D" uid="uid://cwfmcdih7l4va" path="res://assets/ITEMS_CASHE/potion_1.svg" id="6_ovb3k"]
+[ext_resource type="Texture2D" uid="uid://bcoymh7jr57l5" path="res://assets/ITEMS_CASHE/potion_2.svg" id="7_v4ywi"]
+
+[sub_resource type="Resource" id="Resource_khvmr"]
+script = ExtResource("1_xlds3")
+id = "W_1"
+name = "LongSword"
+type = "Weapon"
+rarity = "one star"
+price = 50
+icon = ExtResource("2_bdasd")
+description = "A sturdy blade. Trustyworthy for close combat."
+stats = {
+"attack": 5,
+"charisma": 0,
+"defense": 0,
+"magic_defense": 0
+}
+metadata/_custom_type_script = "uid://bljjg4k206igk"
+
+[sub_resource type="Resource" id="Resource_8s8sr"]
+script = ExtResource("1_xlds3")
+id = "A_1"
+name = "Sturdy Shield"
+type = "Armor"
+rarity = "one star"
+price = 45
+icon = ExtResource("3_mypfr")
+description = "This shield is heavy and made of special materials that absorb impact"
+stats = {
+"attack": 0,
+"charisma": 0,
+"defense": 10,
+"magic_defense": 2
+}
+metadata/_custom_type_script = "uid://bljjg4k206igk"
+
+[sub_resource type="Resource" id="Resource_516l8"]
+script = ExtResource("1_xlds3")
+id = "A_2"
+name = "Mama's Amulet"
+type = "Armor"
+rarity = "Two Star"
+price = 80
+icon = ExtResource("4_ovb3k")
+description = "Your mother put all her love into a protective charm."
+stats = {
+"attack": 0,
+"charisma": 0,
+"defense": 0,
+"magic_defense": 8
+}
+metadata/_custom_type_script = "uid://bljjg4k206igk"
+
+[sub_resource type="Resource" id="Resource_mypfr"]
+script = ExtResource("1_xlds3")
+id = "A_3"
+name = "Cool Ring"
+type = "Armor"
+rarity = "four stars"
+price = 1000
+icon = ExtResource("5_bdasd")
+description = "Sheesh"
+stats = {
+"attack": 0,
+"charisma": 30,
+"defense": 0,
+"magic_defense": 0
+}
+metadata/_custom_type_script = "uid://bljjg4k206igk"
+
+[sub_resource type="Resource" id="Resource_kcfak"]
+script = ExtResource("1_xlds3")
+id = "HP_1"
+name = "Health Potion"
+type = "Potion"
+equippable = false
+consumable = true
+rarity = "one star"
+price = 10
+icon = ExtResource("6_ovb3k")
+description = "The magic in this drink revitalizes you."
+stats = {
+"attack": 0,
+"charisma": 0,
+"defense": 0,
+"health_restore": 5,
+"magic_defense": 0,
+"magic_restore": 0
+}
+metadata/_custom_type_script = "uid://bljjg4k206igk"
+
+[sub_resource type="Resource" id="Resource_rkouq"]
+script = ExtResource("1_xlds3")
+id = "MP_1"
+name = "Mana Potion"
+type = "Potion"
+equippable = false
+consumable = true
+rarity = "one star"
+price = 10
+icon = ExtResource("7_v4ywi")
+description = "The essence of magical creatures collected and turned to drin."
+stats = {
+"attack": 0,
+"charisma": 0,
+"defense": 0,
+"health_restore": 0,
+"magic_defense": 0,
+"magic_restore": 5
+}
+metadata/_custom_type_script = "uid://bljjg4k206igk"
+
+[resource]
+script = ExtResource("5_v4ywi")
+items = Array[ExtResource("1_xlds3")]([SubResource("Resource_khvmr"), SubResource("Resource_8s8sr"), SubResource("Resource_516l8"), SubResource("Resource_mypfr"), SubResource("Resource_kcfak"), SubResource("Resource_rkouq")])
+metadata/_custom_type_script = "uid://2vkf6a8ckj56"

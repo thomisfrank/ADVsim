@@ -12,6 +12,8 @@ extends Control
 @export var selected_actions := false
 @export var you_bar: NodePath
 @export var inventory_bar: NodePath
+@export var ability_bar: NodePath
+@export var activities_bar: NodePath
 @export var action_bar: NodePath
 @export var action_bar_attack: NodePath
 @export var action_bar_speak: NodePath
@@ -24,6 +26,8 @@ var actions_cell: Node
 var actions_fill: Node
 var you_bar_node: Node
 var inventory_bar_node: Node
+var ability_bar_node: Node
+var activities_bar_node: Node
 var action_bar_node: Node
 var action_bar_attack_node: Node
 var action_bar_speak_node: Node
@@ -57,6 +61,8 @@ func _ready():
 			button.pressed.connect(_on_actions_pressed)
 	you_bar_node = _resolve_node(you_bar)
 	inventory_bar_node = _resolve_node(inventory_bar)
+	ability_bar_node = _resolve_node(ability_bar)
+	activities_bar_node = _resolve_node(activities_bar)
 	action_bar_node = _resolve_node(action_bar)
 	action_bar_attack_node = _resolve_node(action_bar_attack)
 	action_bar_speak_node = _resolve_node(action_bar_speak)
@@ -65,6 +71,10 @@ func _ready():
 		you_cell.cell_pressed.connect(_on_you_pressed)
 	if inventory_cell and inventory_cell.has_signal("cell_pressed"):
 		inventory_cell.cell_pressed.connect(_on_inventory_pressed)
+	if abilities_cell and abilities_cell.has_signal("cell_pressed"):
+		abilities_cell.cell_pressed.connect(_on_abilities_pressed)
+	if activities_cell and activities_cell.has_signal("cell_pressed"):
+		activities_cell.cell_pressed.connect(_on_activities_pressed)
 
 	_apply_selection()
 
@@ -74,14 +84,20 @@ func _on_you_pressed():
 func _on_inventory_pressed():
 	_select("inventory")
 
+func _on_abilities_pressed():
+	_select("abilities")
+
+func _on_activities_pressed():
+	_select("activities")
+
 func _on_actions_pressed():
 	_select("actions")
 
 func _select(which: String):
 	selected_you = which == "you"
 	selected_inventory = which == "inventory"
-	selected_abilities = false
-	selected_activities = false
+	selected_abilities = which == "abilities"
+	selected_activities = which == "activities"
 	selected_actions = which == "actions"
 	_apply_selection()
 
@@ -100,6 +116,10 @@ func _apply_selection():
 		you_bar_node.visible = selected_you
 	if inventory_bar_node:
 		inventory_bar_node.visible = selected_inventory
+	if ability_bar_node:
+		ability_bar_node.visible = selected_abilities
+	if activities_bar_node:
+		activities_bar_node.visible = selected_activities
 	if action_bar_node:
 		action_bar_node.visible = selected_actions
 	if action_bar_attack_node and not selected_actions:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://byhmpalhvetj8"]
+[gd_scene load_steps=14 format=3 uid="uid://byhmpalhvetj8"]
 
 [ext_resource type="FontFile" uid="uid://pe6jgxro0jfj" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_5ygvi"]
 [ext_resource type="Texture2D" uid="uid://d1fyuuhflt2q3" path="res://assets/icons/star.png" id="2_ysfx2"]
 [ext_resource type="FontFile" uid="uid://dlxk6n75ce7u" path="res://assets/fonts/DotGothic16-Regular.ttf" id="3_krm6k"]
+[ext_resource type="Script" uid="uid://cqtkl2li1mes5" path="res://scripts/core/inventory_item.gd" id="4_inventory_item"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y73mg"]
 bg_color = Color(0.03137255, 0.03137255, 0.03137255, 0)
@@ -28,13 +29,60 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysfx2"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krm6k"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Gradient" id="Gradient_tsi2e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uqgo6"]
+gradient = SubResource("Gradient_tsi2e")
+width = 37
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8ihv"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wejxh"]
+bg_color = Color(0.81599677, 1, 0.71517414, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
 [node name="Item" type="Control"]
 custom_minimum_size = Vector2(1378, 55)
-layout_mode = 2
-size_flags_horizontal = 3
+layout_mode = 3
+anchors_preset = 0
 offset_right = 1378.0
 offset_bottom = 55.0
+size_flags_horizontal = 3
 mouse_filter = 1
+script = ExtResource("4_inventory_item")
 
 [node name="Name" type="Panel" parent="."]
 custom_minimum_size = Vector2(266, 55)
@@ -119,7 +167,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_le8mt")
 
 [node name="ItemDesc" type="RichTextLabel" parent="Desc"]
 layout_mode = 0
-offset_right = 585.0
+offset_right = 529.0
 offset_bottom = 54.0
 theme_override_fonts/normal_font = ExtResource("3_krm6k")
 text = "Description"
@@ -130,5 +178,30 @@ vertical_alignment = 1
 layout_mode = 0
 offset_right = 1378.0
 offset_bottom = 54.0
-flat = true
 mouse_filter = 1
+flat = true
+
+[node name="Consume" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1328.0
+offset_top = 9.0
+offset_right = 1365.0
+offset_bottom = 46.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ysfx2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_krm6k")
+icon = SubResource("GradientTexture1D_uqgo6")
+
+[node name="Equip" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(37, 37)
+layout_mode = 0
+offset_left = 1328.0
+offset_top = 9.0
+offset_right = 1365.0
+offset_bottom = 46.0
+theme_override_constants/icon_max_width = 37
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8ihv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wejxh")
+icon = SubResource("GradientTexture1D_uqgo6")
+expand_icon = true

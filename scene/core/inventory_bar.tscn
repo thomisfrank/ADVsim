@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://7b13fivh46gx"]
 
-[ext_resource type="PackedScene" uid="uid://byhmpalhvetj8" path="res://scene/core/item.tscn" id="1_w26fm"]
+[ext_resource type="Script" path="res://scripts/core/inventory_bar.gd" id="1_inventory_bar"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ysld"]
 
 [node name="Inventory_Bar" type="Control"]
+script = ExtResource("1_inventory_bar")
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1440.0
@@ -23,82 +24,3 @@ mouse_filter = 2
 
 [node name="InventoryList" type="VBoxContainer" parent="InventoryScroll"]
 layout_mode = 2
-
-[node name="InventoryList#Item" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]
-
-[node name="InventoryList#VSeparator" type="VSeparator" parent="InventoryScroll/InventoryList"]
-custom_minimum_size = Vector2(0, 0.2)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_3ysld")
-
-[node name="InventoryList#Item2" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]
-
-[node name="InventoryList#VSeparator2" type="VSeparator" parent="InventoryScroll/InventoryList"]
-custom_minimum_size = Vector2(0, 0.2)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_3ysld")
-
-[node name="InventoryList#Item3" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]
-
-[node name="InventoryList#VSeparator3" type="VSeparator" parent="InventoryScroll/InventoryList"]
-custom_minimum_size = Vector2(0, 0.2)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_3ysld")
-
-[node name="InventoryList#Item4" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]
-
-[node name="InventoryList#VSeparator4" type="VSeparator" parent="InventoryScroll/InventoryList"]
-custom_minimum_size = Vector2(0, 0.2)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_3ysld")
-
-[node name="InventoryList#Item5" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]
-
-[node name="InventoryList#VSeparator5" type="VSeparator" parent="InventoryScroll/InventoryList"]
-custom_minimum_size = Vector2(0, 0.2)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_3ysld")
-
-[node name="InventoryList#Item6" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]
-
-[node name="InventoryList#VSeparator6" type="VSeparator" parent="InventoryScroll/InventoryList"]
-custom_minimum_size = Vector2(0, 0.2)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_3ysld")
-
-[node name="InventoryList#Item7" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]
-
-[node name="InventoryList#VSeparator7" type="VSeparator" parent="InventoryScroll/InventoryList"]
-custom_minimum_size = Vector2(0, 0.2)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_3ysld")
-
-[node name="InventoryList#Item8" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]
-
-[node name="InventoryList#VSeparator8" type="VSeparator" parent="InventoryScroll/InventoryList"]
-custom_minimum_size = Vector2(0, 0.2)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_3ysld")
-
-[node name="InventoryList#Item9" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]
-
-[node name="InventoryList#VSeparator9" type="VSeparator" parent="InventoryScroll/InventoryList"]
-custom_minimum_size = Vector2(0, 0.2)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_3ysld")
-
-[node name="InventoryList#Item10" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]
-
-[node name="InventoryList#VSeparator10" type="VSeparator" parent="InventoryScroll/InventoryList"]
-custom_minimum_size = Vector2(0, 0.2)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_3ysld")
-
-[node name="InventoryList#Item11" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]
-
-[node name="InventoryList#VSeparator11" type="VSeparator" parent="InventoryScroll/InventoryList"]
-custom_minimum_size = Vector2(0, 0.2)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_3ysld")
-
-[node name="InventoryList#Item12" parent="InventoryScroll/InventoryList" instance=ExtResource("1_w26fm")]

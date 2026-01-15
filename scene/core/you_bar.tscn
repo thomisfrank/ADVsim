@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjn0rmrep6c8p"]
+[gd_scene load_steps=9 format=3 uid="uid://bjn0rmrep6c8p"]
 
 [ext_resource type="FontFile" uid="uid://pe6jgxro0jfj" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_5marg"]
 [ext_resource type="FontFile" uid="uid://dlxk6n75ce7u" path="res://assets/fonts/DotGothic16-Regular.ttf" id="2_rhfig"]
+[ext_resource type="Script" uid="uid://bfbgpf44gfugw" path="res://scripts/core/you_bar.gd" id="3_you_bar"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3g6g"]
 
@@ -32,6 +33,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("3_you_bar")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -70,8 +72,9 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_fif1j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_y73mg")
+max_value = 20.0
 step = 1.0
-value = 100.0
+value = 20.0
 show_percentage = false
 
 [node name="RemainingValue" type="RichTextLabel" parent="Stats/HealthStat/HealthBar"]
@@ -82,7 +85,7 @@ offset_right = 499.0
 offset_bottom = 51.0
 theme_override_fonts/normal_font = ExtResource("2_rhfig")
 theme_override_font_sizes/normal_font_size = 32
-text = "100/"
+text = "20/"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -95,7 +98,7 @@ offset_right = 999.0
 offset_bottom = 52.0
 theme_override_fonts/normal_font = ExtResource("1_5marg")
 theme_override_font_sizes/normal_font_size = 48
-text = "100"
+text = "20"
 vertical_alignment = 1
 
 [node name="VSeparator2" type="VSeparator" parent="Stats"]
@@ -128,9 +131,9 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_fif1j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_x5sol")
-max_value = 20.0
+max_value = 10.0
 step = 1.0
-value = 20.0
+value = 10.0
 show_percentage = false
 
 [node name="RemainingValue" type="RichTextLabel" parent="Stats/MagicStat/MagicBar"]
@@ -141,7 +144,7 @@ offset_right = 499.0
 offset_bottom = 51.0
 theme_override_fonts/normal_font = ExtResource("2_rhfig")
 theme_override_font_sizes/normal_font_size = 32
-text = "20/"
+text = "10/"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -154,7 +157,7 @@ offset_right = 999.0
 offset_bottom = 52.0
 theme_override_fonts/normal_font = ExtResource("1_5marg")
 theme_override_font_sizes/normal_font_size = 48
-text = "20"
+text = "10"
 vertical_alignment = 1
 
 [node name="VSeparator3" type="VSeparator" parent="Stats"]
@@ -186,7 +189,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_5marg")
 theme_override_font_sizes/normal_font_size = 62
-text = "80"
+text = "0"
 
 [node name="VSeparator4" type="VSeparator" parent="Stats"]
 custom_minimum_size = Vector2(1, 0)
@@ -217,7 +220,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_5marg")
 theme_override_font_sizes/normal_font_size = 62
-text = "60"
+text = "0"
 
 [node name="VSeparator5" type="VSeparator" parent="Stats"]
 custom_minimum_size = Vector2(1, 0)
@@ -248,7 +251,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_5marg")
 theme_override_font_sizes/normal_font_size = 62
-text = "55"
+text = "0"
 
 [node name="VSeparator6" type="VSeparator" parent="Stats"]
 custom_minimum_size = Vector2(1, 0)
@@ -279,4 +282,4 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_5marg")
 theme_override_font_sizes/normal_font_size = 62
-text = "30"
+text = "0"

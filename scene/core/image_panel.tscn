@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ma4mt3dk851j"]
+
+[ext_resource type="Texture2D" uid="uid://dxghul3gxvm0u" path="res://assets/ITEMS_CASHE/necklace.svg" id="1_n13xj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01jk7"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Image_Panel" type="Panel"]
+custom_minimum_size = Vector2(880, 800)
+offset_right = 880.0
+offset_bottom = 800.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_01jk7")
+
+[node name="IMAGE" type="Sprite2D" parent="."]
+position = Vector2(419.99994, 385)
+scale = Vector2(0.3252606, 0.32526058)
+texture = ExtResource("1_n13xj")

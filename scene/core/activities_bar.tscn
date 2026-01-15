@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://odsxd201h5kw"]
+
+[ext_resource type="FontFile" uid="uid://pe6jgxro0jfj" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_n8ykt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c2p7"]
+content_margin_left = 20.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="Activities_bar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Guild" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(1440, 150)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 2606.0
+offset_right = 1439.0
+offset_bottom = 2756.0
+theme_override_fonts/font = ExtResource("1_n8ykt")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_0c2p7")
+text = "Guild"
+alignment = 0
+
+[node name="Dungeon" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(1440, 150)
+layout_mode = 0
+offset_top = 2754.0
+offset_right = 1440.0
+offset_bottom = 2904.0
+theme_override_fonts/font = ExtResource("1_n8ykt")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_0c2p7")
+text = "Dungeon"
+alignment = 0
+
+[node name="Medic" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(1440, 150)
+layout_mode = 0
+offset_top = 2902.0
+offset_right = 1440.0
+offset_bottom = 3052.0
+theme_override_fonts/font = ExtResource("1_n8ykt")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_0c2p7")
+text = "Medic"
+alignment = 0
+
+[node name="Shop" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(1440, 150)
+layout_mode = 0
+offset_top = 3050.0
+offset_right = 1440.0
+offset_bottom = 3200.0
+theme_override_fonts/font = ExtResource("1_n8ykt")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_0c2p7")
+text = "Shop"
+alignment = 0
