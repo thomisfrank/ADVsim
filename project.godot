@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="AdvSim"
+config/name="Ad Vsim Main"
 run/main_scene="uid://ri1kxfhsq6gp"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"

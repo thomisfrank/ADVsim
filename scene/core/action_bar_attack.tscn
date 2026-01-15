@@ -1,0 +1,305 @@
+[gd_scene load_steps=9 format=3 uid="uid://bee6oacl4htnv"]
+
+[ext_resource type="Script" path="res://scripts/core/action_bar_attack.gd" id="1_085ud"]
+[ext_resource type="FontFile" uid="uid://pe6jgxro0jfj" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_lk0lw"]
+[ext_resource type="Texture2D" uid="uid://cdw215t1a8u61" path="res://assets/icons/chevron.png" id="2_085ud"]
+[ext_resource type="FontFile" uid="uid://dlxk6n75ce7u" path="res://assets/fonts/DotGothic16-Regular.ttf" id="3_a1q6j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptxkd"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_2a0g8"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vwcjd"]
+gradient = SubResource("Gradient_2a0g8")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mi2bx"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 1
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 1
+
+[node name="Action_Bar_attack" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_085ud")
+
+[node name="BackButton" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 21.0
+offset_top = 2554.0
+offset_right = 142.0
+offset_bottom = 2597.0
+theme_override_fonts/font = ExtResource("1_lk0lw")
+theme_override_font_sizes/font_size = 32
+text = "ATTACK"
+icon = ExtResource("2_085ud")
+
+[node name="Ability Panel" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 2597.0
+offset_right = 665.0
+offset_bottom = 3197.0
+
+[node name="Ability" type="Button" parent="Ability Panel"]
+custom_minimum_size = Vector2(0, 147)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lk0lw")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ptxkd")
+text = "Ability Name"
+icon = SubResource("GradientTexture2D_vwcjd")
+flat = true
+alignment = 2
+autowrap_mode = 1
+autowrap_trim_flags = 192
+icon_alignment = 2
+expand_icon = true
+
+[node name="PowerValue" type="RichTextLabel" parent="Ability Panel/Ability"]
+custom_minimum_size = Vector2(180, 45)
+layout_mode = 0
+offset_left = 680.0
+offset_top = 52.0
+offset_right = 860.0
+offset_bottom = 97.0
+theme_override_fonts/normal_font = ExtResource("3_a1q6j")
+theme_override_font_sizes/normal_font_size = 28
+text = "10/10 P"
+
+[node name="AbilityDescription" type="Panel" parent="Ability Panel/Ability"]
+visible = false
+layout_mode = 0
+offset_left = 866.0
+offset_top = 14.0
+offset_right = 1435.0
+offset_bottom = 585.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mi2bx")
+
+[node name="Desc" type="RichTextLabel" parent="Ability Panel/Ability/AbilityDescription"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.41858
+offset_top = -178.5
+offset_right = 271.41858
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_a1q6j")
+theme_override_font_sizes/normal_font_size = 28
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+[node name="Header" type="RichTextLabel" parent="Ability Panel/Ability/AbilityDescription"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 24.0
+offset_right = 555.0
+offset_bottom = 91.0
+theme_override_fonts/normal_font = ExtResource("1_lk0lw")
+theme_override_font_sizes/normal_font_size = 48
+text = "Ability Name"
+
+[node name="Ability2" type="Button" parent="Ability Panel"]
+custom_minimum_size = Vector2(0, 147)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lk0lw")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ptxkd")
+text = "Ability Name"
+icon = SubResource("GradientTexture2D_vwcjd")
+flat = true
+alignment = 2
+autowrap_mode = 1
+autowrap_trim_flags = 192
+icon_alignment = 2
+expand_icon = true
+
+[node name="PowerValue" type="RichTextLabel" parent="Ability Panel/Ability2"]
+custom_minimum_size = Vector2(180, 45)
+layout_mode = 0
+offset_left = 680.0
+offset_top = 52.0
+offset_right = 860.0
+offset_bottom = 97.0
+theme_override_fonts/normal_font = ExtResource("3_a1q6j")
+theme_override_font_sizes/normal_font_size = 28
+text = "10/10 P"
+
+[node name="AbilityDescription" type="Panel" parent="Ability Panel/Ability2"]
+visible = false
+layout_mode = 0
+offset_left = 866.0
+offset_top = -139.0
+offset_right = 1435.0
+offset_bottom = 432.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mi2bx")
+
+[node name="Desc" type="RichTextLabel" parent="Ability Panel/Ability2/AbilityDescription"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.41858
+offset_top = -178.5
+offset_right = 271.41858
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_a1q6j")
+theme_override_font_sizes/normal_font_size = 28
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+[node name="Header" type="RichTextLabel" parent="Ability Panel/Ability2/AbilityDescription"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 24.0
+offset_right = 555.0
+offset_bottom = 91.0
+theme_override_fonts/normal_font = ExtResource("1_lk0lw")
+theme_override_font_sizes/normal_font_size = 48
+text = "Ability Name"
+
+[node name="Ability3" type="Button" parent="Ability Panel"]
+custom_minimum_size = Vector2(0, 147)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lk0lw")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ptxkd")
+text = "Ability Name"
+icon = SubResource("GradientTexture2D_vwcjd")
+flat = true
+alignment = 2
+autowrap_mode = 1
+autowrap_trim_flags = 192
+icon_alignment = 2
+expand_icon = true
+
+[node name="PowerValue" type="RichTextLabel" parent="Ability Panel/Ability3"]
+custom_minimum_size = Vector2(180, 45)
+layout_mode = 0
+offset_left = 680.0
+offset_top = 52.0
+offset_right = 860.0
+offset_bottom = 97.0
+theme_override_fonts/normal_font = ExtResource("3_a1q6j")
+theme_override_font_sizes/normal_font_size = 28
+text = "10/10 P"
+
+[node name="AbilityDescription" type="Panel" parent="Ability Panel/Ability3"]
+visible = false
+layout_mode = 0
+offset_left = 866.0
+offset_top = -291.0
+offset_right = 1435.0
+offset_bottom = 280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mi2bx")
+
+[node name="Desc" type="RichTextLabel" parent="Ability Panel/Ability3/AbilityDescription"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.41858
+offset_top = -178.5
+offset_right = 271.41858
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_a1q6j")
+theme_override_font_sizes/normal_font_size = 28
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+[node name="Header" type="RichTextLabel" parent="Ability Panel/Ability3/AbilityDescription"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 24.0
+offset_right = 555.0
+offset_bottom = 91.0
+theme_override_fonts/normal_font = ExtResource("1_lk0lw")
+theme_override_font_sizes/normal_font_size = 48
+text = "Ability Name"
+
+[node name="Ability4" type="Button" parent="Ability Panel"]
+custom_minimum_size = Vector2(0, 147)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lk0lw")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ptxkd")
+text = "Ability Name"
+icon = SubResource("GradientTexture2D_vwcjd")
+flat = true
+alignment = 2
+autowrap_mode = 1
+autowrap_trim_flags = 192
+icon_alignment = 2
+expand_icon = true
+
+[node name="PowerValue" type="RichTextLabel" parent="Ability Panel/Ability4"]
+custom_minimum_size = Vector2(180, 45)
+layout_mode = 0
+offset_left = 680.0
+offset_top = 52.0
+offset_right = 860.0
+offset_bottom = 97.0
+theme_override_fonts/normal_font = ExtResource("3_a1q6j")
+theme_override_font_sizes/normal_font_size = 28
+text = "10/10 P"
+
+[node name="AbilityDescription" type="Panel" parent="Ability Panel/Ability4"]
+visible = false
+layout_mode = 0
+offset_left = 866.0
+offset_top = -441.0
+offset_right = 1435.0
+offset_bottom = 130.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mi2bx")
+
+[node name="Desc" type="RichTextLabel" parent="Ability Panel/Ability4/AbilityDescription"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.41858
+offset_top = -178.5
+offset_right = 271.41858
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_a1q6j")
+theme_override_font_sizes/normal_font_size = 28
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+[node name="Header" type="RichTextLabel" parent="Ability Panel/Ability4/AbilityDescription"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 24.0
+offset_right = 555.0
+offset_bottom = 91.0
+theme_override_fonts/normal_font = ExtResource("1_lk0lw")
+theme_override_font_sizes/normal_font_size = 48
+text = "Ability Name"

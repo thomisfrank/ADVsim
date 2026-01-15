@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://dsry25eb185b1"]
+
+[ext_resource type="FontFile" uid="uid://pe6jgxro0jfj" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_akgo4"]
+[ext_resource type="Texture2D" uid="uid://cdw215t1a8u61" path="res://assets/icons/chevron.png" id="2_d0m6f"]
+[ext_resource type="FontFile" uid="uid://dlxk6n75ce7u" path="res://assets/fonts/DotGothic16-Regular.ttf" id="3_4oanv"]
+[ext_resource type="Script" path="res://scripts/core/action_bar_speak.gd" id="4_action_bar_speak"]
+[ext_resource type="Texture2D" uid="uid://cr64iv0wwbdy" path="res://assets/icons/Speech1.png" id="4_q2r86"]
+[ext_resource type="Texture2D" uid="uid://bfb13h0d6by62" path="res://assets/icons/Speech2.png" id="5_348ug"]
+[ext_resource type="Texture2D" uid="uid://b3ga7mx7i156w" path="res://assets/icons/Speech3.png" id="6_lkgbj"]
+[ext_resource type="Texture2D" uid="uid://bkse2bayf10vj" path="res://assets/icons/Speech4.png" id="7_3x14r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rw1s1"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="Action_Bar_Speak" type="Control"]
+custom_minimum_size = Vector2(1440, 642)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 2557.0
+offset_right = 1440.0
+offset_bottom = 3199.0
+script = ExtResource("4_action_bar_speak")
+
+[node name="BackButton" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 21.0
+offset_top = -3.0
+offset_right = 142.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_akgo4")
+theme_override_font_sizes/font_size = 32
+text = "SPEAK"
+icon = ExtResource("2_d0m6f")
+
+[node name="Option" type="Button" parent="."]
+custom_minimum_size = Vector2(345, 74)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 95.0
+offset_right = 606.0
+offset_bottom = 244.0
+theme_override_fonts/font = ExtResource("3_4oanv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rw1s1")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+autowrap_mode = 2
+
+[node name="Speech1" type="Sprite2D" parent="Option"]
+texture_filter = 1
+position = Vector2(652, 184)
+texture = ExtResource("4_q2r86")
+
+[node name="Option2" type="Button" parent="."]
+custom_minimum_size = Vector2(345, 74)
+layout_mode = 0
+offset_left = 832.0
+offset_top = 95.0
+offset_right = 1419.0
+offset_bottom = 244.0
+theme_override_fonts/font = ExtResource("3_4oanv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rw1s1")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+autowrap_mode = 2
+
+[node name="Speech2" type="Sprite2D" parent="Option2"]
+texture_filter = 1
+position = Vector2(-65, 184)
+texture = ExtResource("5_348ug")
+
+[node name="Option3" type="Button" parent="."]
+custom_minimum_size = Vector2(345, 74)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 419.0
+offset_right = 606.0
+offset_bottom = 568.0
+theme_override_fonts/font = ExtResource("3_4oanv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rw1s1")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+autowrap_mode = 2
+
+[node name="Speech3" type="Sprite2D" parent="Option3"]
+texture_filter = 1
+position = Vector2(748, -44)
+texture = ExtResource("6_lkgbj")
+
+[node name="Option4" type="Button" parent="."]
+custom_minimum_size = Vector2(345, 74)
+layout_mode = 0
+offset_left = 832.0
+offset_top = 419.0
+offset_right = 1419.0
+offset_bottom = 568.0
+theme_override_fonts/font = ExtResource("3_4oanv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rw1s1")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+autowrap_mode = 2
+
+[node name="Speech4" type="Sprite2D" parent="Option4"]
+position = Vector2(-161, -44)
+texture = ExtResource("7_3x14r")
