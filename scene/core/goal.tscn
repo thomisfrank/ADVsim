@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://deo3r5vmftwlg"]
+
+[ext_resource type="FontFile" uid="uid://pe6jgxro0jfj" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_wg82l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggteq"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="Goal" type="Panel"]
+custom_minimum_size = Vector2(1440, 125)
+offset_top = 208.0
+offset_right = 1440.0
+offset_bottom = 333.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ggteq")
+
+[node name="Goal text" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 100.0
+offset_top = 33.0
+offset_right = 545.0
+offset_bottom = 95.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_wg82l")
+theme_override_font_sizes/normal_font_size = 56
+text = "QUEST GOAL"
+
+[node name="CheckBox" type="CheckBox" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1280.0
+offset_top = 40.0
+offset_right = 1304.0
+offset_bottom = 64.0
+scale = Vector2(2.5, 2.5)

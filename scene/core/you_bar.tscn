@@ -1,0 +1,282 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjn0rmrep6c8p"]
+
+[ext_resource type="FontFile" uid="uid://pe6jgxro0jfj" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_5marg"]
+[ext_resource type="FontFile" uid="uid://dlxk6n75ce7u" path="res://assets/fonts/DotGothic16-Regular.ttf" id="2_rhfig"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3g6g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fif1j"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y73mg"]
+bg_color = Color(0, 0.3485619, 0.16066015, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5marg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5sol"]
+bg_color = Color(0, 0.24705882, 0.6666667, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="You_Bar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_right = 404.0
+offset_bottom = 451.0
+color = Color(1, 1, 1, 0.09411765)
+
+[node name="Stats" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 0
+offset_right = 1440.0
+offset_bottom = 587.0
+
+[node name="HealthStat" type="HBoxContainer" parent="Stats"]
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+
+[node name="Stat" type="RichTextLabel" parent="Stats/HealthStat"]
+custom_minimum_size = Vector2(360, 68)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 62
+text = "Health"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Stats/HealthStat"]
+custom_minimum_size = Vector2(33, 40)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_g3g6g")
+
+[node name="HealthBar" type="ProgressBar" parent="Stats/HealthStat"]
+custom_minimum_size = Vector2(999, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_fif1j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y73mg")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="RemainingValue" type="RichTextLabel" parent="Stats/HealthStat/HealthBar"]
+texture_filter = 1
+custom_minimum_size = Vector2(499, 0)
+layout_mode = 0
+offset_right = 499.0
+offset_bottom = 51.0
+theme_override_fonts/normal_font = ExtResource("2_rhfig")
+theme_override_font_sizes/normal_font_size = 32
+text = "100/"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MaxValue" type="RichTextLabel" parent="Stats/HealthStat/HealthBar"]
+texture_filter = 1
+custom_minimum_size = Vector2(499, 0)
+layout_mode = 0
+offset_left = 500.0
+offset_right = 999.0
+offset_bottom = 52.0
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 48
+text = "100"
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="Stats"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5marg")
+
+[node name="MagicStat" type="HBoxContainer" parent="Stats"]
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+
+[node name="Stat" type="RichTextLabel" parent="Stats/MagicStat"]
+custom_minimum_size = Vector2(360, 68)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 62
+text = "Magic"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Stats/MagicStat"]
+custom_minimum_size = Vector2(33, 40)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_g3g6g")
+
+[node name="MagicBar" type="ProgressBar" parent="Stats/MagicStat"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(999, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_fif1j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_x5sol")
+max_value = 20.0
+step = 1.0
+value = 20.0
+show_percentage = false
+
+[node name="RemainingValue" type="RichTextLabel" parent="Stats/MagicStat/MagicBar"]
+texture_filter = 1
+custom_minimum_size = Vector2(499, 0)
+layout_mode = 0
+offset_right = 499.0
+offset_bottom = 51.0
+theme_override_fonts/normal_font = ExtResource("2_rhfig")
+theme_override_font_sizes/normal_font_size = 32
+text = "20/"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MaxValue" type="RichTextLabel" parent="Stats/MagicStat/MagicBar"]
+texture_filter = 1
+custom_minimum_size = Vector2(499, 0)
+layout_mode = 0
+offset_left = 500.0
+offset_right = 999.0
+offset_bottom = 52.0
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 48
+text = "20"
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="Stats"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5marg")
+
+[node name="AttackStat" type="HBoxContainer" parent="Stats"]
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+
+[node name="Stat" type="RichTextLabel" parent="Stats/AttackStat"]
+custom_minimum_size = Vector2(360, 68)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 62
+text = "Attack"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Stats/AttackStat"]
+custom_minimum_size = Vector2(33, 40)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_g3g6g")
+
+[node name="Value" type="RichTextLabel" parent="Stats/AttackStat"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 62
+text = "80"
+
+[node name="VSeparator4" type="VSeparator" parent="Stats"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5marg")
+
+[node name="DefenseStat" type="HBoxContainer" parent="Stats"]
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+
+[node name="Stat" type="RichTextLabel" parent="Stats/DefenseStat"]
+custom_minimum_size = Vector2(360, 68)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 62
+text = "Defense"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Stats/DefenseStat"]
+custom_minimum_size = Vector2(33, 40)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_g3g6g")
+
+[node name="Value" type="RichTextLabel" parent="Stats/DefenseStat"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 62
+text = "60"
+
+[node name="VSeparator5" type="VSeparator" parent="Stats"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5marg")
+
+[node name="MagicDefenseStat" type="HBoxContainer" parent="Stats"]
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+
+[node name="Stat" type="RichTextLabel" parent="Stats/MagicDefenseStat"]
+custom_minimum_size = Vector2(360, 68)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 62
+text = "Magic Defense"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Stats/MagicDefenseStat"]
+custom_minimum_size = Vector2(33, 40)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_g3g6g")
+
+[node name="Value" type="RichTextLabel" parent="Stats/MagicDefenseStat"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 62
+text = "55"
+
+[node name="VSeparator6" type="VSeparator" parent="Stats"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5marg")
+
+[node name="CharismaStat" type="HBoxContainer" parent="Stats"]
+custom_minimum_size = Vector2(1440, 0)
+layout_mode = 2
+
+[node name="Stat" type="RichTextLabel" parent="Stats/CharismaStat"]
+custom_minimum_size = Vector2(360, 68)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 62
+text = "Charisma"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Stats/CharismaStat"]
+custom_minimum_size = Vector2(33, 40)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_g3g6g")
+
+[node name="Value" type="RichTextLabel" parent="Stats/CharismaStat"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_5marg")
+theme_override_font_sizes/normal_font_size = 62
+text = "30"

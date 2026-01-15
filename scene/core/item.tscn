@@ -1,0 +1,134 @@
+[gd_scene load_steps=7 format=3 uid="uid://byhmpalhvetj8"]
+
+[ext_resource type="FontFile" uid="uid://pe6jgxro0jfj" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_5ygvi"]
+[ext_resource type="Texture2D" uid="uid://d1fyuuhflt2q3" path="res://assets/icons/star.png" id="2_ysfx2"]
+[ext_resource type="FontFile" uid="uid://dlxk6n75ce7u" path="res://assets/fonts/DotGothic16-Regular.ttf" id="3_krm6k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y73mg"]
+bg_color = Color(0.03137255, 0.03137255, 0.03137255, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8c4di"]
+bg_color = Color(0.2159017, 0.21590173, 0.2159017, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_le8mt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="Item" type="Control"]
+custom_minimum_size = Vector2(1378, 55)
+layout_mode = 2
+size_flags_horizontal = 3
+offset_right = 1378.0
+offset_bottom = 55.0
+mouse_filter = 1
+
+[node name="Name" type="Panel" parent="."]
+custom_minimum_size = Vector2(266, 55)
+layout_mode = 0
+offset_left = -1.0
+offset_right = 265.0
+offset_bottom = 55.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y73mg")
+
+[node name="ItemName" type="RichTextLabel" parent="Name"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 11.0
+offset_right = 266.0
+offset_bottom = 54.0
+theme_override_fonts/normal_font = ExtResource("1_5ygvi")
+theme_override_font_sizes/normal_font_size = 24
+text = "Item name"
+vertical_alignment = 1
+
+[node name="Type" type="Panel" parent="."]
+custom_minimum_size = Vector2(266, 55)
+layout_mode = 0
+offset_left = 263.0
+offset_right = 529.0
+offset_bottom = 55.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y73mg")
+
+[node name="ItemType" type="RichTextLabel" parent="Type"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 11.0
+offset_right = 266.0
+offset_bottom = 54.0
+theme_override_fonts/normal_font = ExtResource("1_5ygvi")
+theme_override_font_sizes/normal_font_size = 24
+text = "Item type"
+vertical_alignment = 1
+
+[node name="Rarity" type="Panel" parent="."]
+custom_minimum_size = Vector2(266, 55)
+layout_mode = 0
+offset_left = 527.0
+offset_right = 793.0
+offset_bottom = 55.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8c4di")
+
+[node name="Star" type="Sprite2D" parent="Rarity"]
+texture_filter = 1
+position = Vector2(31, 27)
+scale = Vector2(1.6052631, 1.6052631)
+texture = ExtResource("2_ysfx2")
+
+[node name="Star2" type="Sprite2D" parent="Rarity"]
+visible = false
+texture_filter = 1
+position = Vector2(98, 27)
+scale = Vector2(1.6052631, 1.6052631)
+texture = ExtResource("2_ysfx2")
+
+[node name="Star3" type="Sprite2D" parent="Rarity"]
+visible = false
+texture_filter = 1
+position = Vector2(164, 27)
+scale = Vector2(1.6052631, 1.6052631)
+texture = ExtResource("2_ysfx2")
+
+[node name="Star4" type="Sprite2D" parent="Rarity"]
+visible = false
+texture_filter = 1
+position = Vector2(229, 27)
+scale = Vector2(1.6052631, 1.6052631)
+texture = ExtResource("2_ysfx2")
+
+[node name="Desc" type="Panel" parent="."]
+custom_minimum_size = Vector2(586, 55)
+layout_mode = 0
+offset_left = 791.0
+offset_right = 1377.0
+offset_bottom = 55.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_le8mt")
+
+[node name="ItemDesc" type="RichTextLabel" parent="Desc"]
+layout_mode = 0
+offset_right = 585.0
+offset_bottom = 54.0
+theme_override_fonts/normal_font = ExtResource("3_krm6k")
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 1378.0
+offset_bottom = 54.0
+flat = true
+mouse_filter = 1
