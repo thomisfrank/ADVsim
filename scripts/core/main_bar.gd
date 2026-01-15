@@ -79,19 +79,29 @@ func _ready():
 	_apply_selection()
 
 func _on_you_pressed():
+	_play_click()
 	_select("you")
 
 func _on_inventory_pressed():
+	_play_click()
 	_select("inventory")
 
 func _on_abilities_pressed():
+	_play_click()
 	_select("abilities")
 
 func _on_activities_pressed():
+	_play_click()
 	_select("activities")
 
 func _on_actions_pressed():
+	_play_click()
 	_select("actions")
+
+func _play_click() -> void:
+	var sound = get_node_or_null("/root/SoundManager")
+	if sound:
+		sound.play_random_click()
 
 func _select(which: String):
 	selected_you = which == "you"

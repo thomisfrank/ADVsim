@@ -9,6 +9,13 @@ var _ability_buttons: Array[Button] = []
 var _equipped_ids: Array[String] = []
 var _action_bar_attack_node: Node
 var _icon_cache: Dictionary = {}
+var _equip_sfx_by_id := {
+	"AB_1": "basic_attack",
+	"AB_2": "wind_bullet",
+	"AB_3": "silver_tongue",
+	"AB_4": "shieldM",
+	"AB_5": "light"
+}
 
 func _ready() -> void:
 	_action_bar_attack_node = _resolve_node(action_bar_attack)
@@ -88,10 +95,12 @@ func _get_visible_icon(texture: Texture2D) -> Texture2D:
 func _on_equip_toggled(pressed: bool, ability: AbilityData, equip_button: Button) -> void:
 	if pressed:
 		if _equipped_ids.size() >= max_equipped and not _equipped_ids.has(ability.id):
+			_play_error()
 			equip_button.button_pressed = false
 			return
 		if not _equipped_ids.has(ability.id):
 			_equipped_ids.append(ability.id)
+			_play_equip_sound(ability.id)
 	else:
 		_equipped_ids.erase(ability.id)
 	_sync_action_bar()
@@ -104,3 +113,16 @@ func _sync_action_bar() -> void:
 		if _equipped_ids.has(ability.id):
 			selected.append(ability)
 	_action_bar_attack_node.set_selected_abilities(selected)
+
+func _play_equip_sound(ability_id: String) -> void:
+	var sound = get_node_or_null("/root/SoundManager")
+	if not sound:
+		return
+	var sfx: String = _equip_sfx_by_id.get(ability_id, "")
+	if sfx != "":
+		sound.play_sfx(sfx)
+
+func _play_error() -> void:
+	var sound = get_node_or_null("/root/SoundManager")
+	if sound:
+		sound.play_sfx("error")

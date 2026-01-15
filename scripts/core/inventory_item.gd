@@ -24,6 +24,13 @@ var _preview_panel: Control
 var _long_press_timer: Timer
 var _long_press_position: Vector2
 
+var _equip_sfx_by_id := {
+	"W_1": "sword",
+	"A_1": "sturdyshield",
+	"A_2": "jewelry",
+	"A_3": "jewelry"
+}
+
 func _ready() -> void:
 	_consume_button.pressed.connect(_on_consume_pressed)
 	_equip_button.toggle_mode = true
@@ -49,12 +56,17 @@ func set_item_data(item: ItemData) -> void:
 
 func _on_equip_toggled(pressed: bool) -> void:
 	if not item_data or not item_data.equippable:
+		_play_error()
 		return
+	if pressed:
+		_play_equip_sound(item_data.id)
 	equip_changed.emit(item_data, pressed)
 
 func _on_consume_pressed() -> void:
 	if not item_data or not item_data.consumable:
+		_play_error()
 		return
+	_play_potion()
 	consume_requested.emit(item_data)
 
 func _input(event: InputEvent) -> void:
@@ -113,6 +125,24 @@ func _show_preview_at(global_pos: Vector2) -> void:
 func _hide_preview() -> void:
 	if _preview_panel:
 		_preview_panel.visible = false
+
+func _play_equip_sound(item_id: String) -> void:
+	var sound = get_node_or_null("/root/SoundManager")
+	if not sound:
+		return
+	var sfx: String = _equip_sfx_by_id.get(item_id, "")
+	if sfx != "":
+		sound.play_sfx(sfx)
+
+func _play_potion() -> void:
+	var sound = get_node_or_null("/root/SoundManager")
+	if sound:
+		sound.play_sfx("potion")
+
+func _play_error() -> void:
+	var sound = get_node_or_null("/root/SoundManager")
+	if sound:
+		sound.play_sfx("error")
 
 func _apply_rarity(rarity_text: String) -> void:
 	var stars := _rarity_to_star_count(rarity_text)

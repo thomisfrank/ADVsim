@@ -114,6 +114,9 @@ func _on_button_mouse_exited(button: Button) -> void:
 		_set_desc_visible(button, false)
 
 func _on_button_down(button: Button) -> void:
+	var sound = get_node_or_null("/root/SoundManager")
+	if sound:
+		sound.play_random_click()
 	var timer = _long_press_timers.get(button)
 	if timer:
 		timer.start()
@@ -143,6 +146,9 @@ func _set_desc_visible(button: Button, show_desc: bool) -> void:
 		desc.visible = show_desc
 
 func _on_back_pressed() -> void:
+	var sound = get_node_or_null("/root/SoundManager")
+	if sound:
+		sound.play_random_click()
 	visible = false
 	if _action_bar_node:
 		_action_bar_node.visible = true
